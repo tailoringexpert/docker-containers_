@@ -11,7 +11,7 @@ networks:
 services:
   tailoringexpert-db:
     build: ./db
-    image: tailoringexpert/db
+    image: tailoringexpert/db:${TAILORINGEPXERT_VERSION}
     container_name: tailoringexpert-db
     hostname: db.tailoringexpert
     ports:
@@ -32,7 +32,7 @@ services:
     
   tailoringexpert-web:
     build: ./web
-    image: tailoringexpert/web
+    image: tailoringexpert/web:${TAILORINGEPXERT_VERSION}
     container_name: tailoringexpert-web
     hostname: web.tailoringexpert    
     networks:
@@ -56,7 +56,7 @@ services:
       traefik.http.services.tailoringexpert-web.loadbalancer.server.scheme: http 
   tailoringexpert-app:
     build: ./app
-    image: tailoringexpert/app
+    image: tailoringexpert/app:${TAILORINGEPXERT_VERSION}
     container_name: tailoringexpert-app
     hostname: app.tailoringexpert
     networks:
